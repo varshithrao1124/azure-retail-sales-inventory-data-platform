@@ -1,0 +1,23 @@
+            rule_id  rows
+         BAD_AMOUNT     1
+        BAD_CHANNEL     1
+    BAD_CUSTOMER_ID     1
+       BAD_DISCOUNT     1
+          BAD_EMAIL     1
+    BAD_LINE_STATUS     1
+  BAD_MOVEMENT_TYPE     1
+       BAD_ORDER_ID     1
+       BAD_ORDER_TS     1
+          BAD_PRICE     1
+            BAD_QTY     1
+     BAD_RETURN_QTY     1
+       BAD_SEQUENCE     1
+            BAD_SKU     1
+         BAD_STATUS     1
+          BAD_STORE     1
+        CORRUPT_ROW     1
+   NEGATIVE_ON_HAND     1
+     ORPHAN_PAYMENT     1
+RETURN_EXCEEDS_SALE     1
+
+quarantine_rows=20

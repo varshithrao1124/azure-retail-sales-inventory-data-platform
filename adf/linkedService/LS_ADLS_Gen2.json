@@ -1,0 +1,11 @@
+{
+  "name": "LS_ADLS_Gen2",
+  "properties": {
+    "description": "ADLS Gen2 hierarchical namespace. Authenticate with the Data Factory managed identity. Bicep grants Storage Blob Data Contributor. Account name must match the bicep parameter.",
+    "annotations": ["auth:ManagedIdentity"],
+    "type": "AzureBlobFS",
+    "typeProperties": {
+      "url": "https://stnlretaildev.dfs.core.windows.net"
+    }
+  }
+}

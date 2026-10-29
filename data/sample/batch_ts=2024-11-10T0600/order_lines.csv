@@ -1,0 +1,5 @@
+order_id,line_number,sku,qty,unit_price,discount_amt,tax_amt,line_status,sequence_number,extract_ts
+O-LATE-0001,1,SKU-NEW-0001,1,16.00,0.00,0.00,SHIPPED,1367,2024-11-10T06:00:00Z
+O-GHOST-0001,1,SKU-CKN-0001,1,34.00,0.00,2.21,SHIPPED,1370,2024-11-10T06:00:00Z
+O-BAD-0001,1,NOTASKU,abc,free,-1,0,NOPE,1,2024-11-10T06:00:00Z
+only,three,fields

@@ -1,0 +1,14 @@
+{
+  "name": "DS_Watermark",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "LS_Synapse_Dedicated",
+      "type": "LinkedServiceReference"
+    },
+    "type": "AzureSqlDWTable",
+    "typeProperties": {
+      "schema": "ctl",
+      "table": "ingest_watermark"
+    }
+  }
+}

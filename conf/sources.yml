@@ -1,0 +1,69 @@
+# Metadata the local runner and ADF ForEach both follow.
+# Load types: snapshot (full extract, SCD bootstrap or type-1 upsert),
+# incremental (business events, MERGE on the natural key),
+# cdc (change feed ordered by sequence_number).
+sources:
+  - name: customers
+    file: customers.csv
+    load_type: snapshot
+    watermark_column: extract_ts
+  - name: products
+    file: products.csv
+    load_type: snapshot
+    watermark_column: extract_ts
+  - name: stores
+    file: stores.csv
+    load_type: snapshot
+    watermark_column: extract_ts
+  - name: channels
+    file: channels.csv
+    load_type: snapshot
+    watermark_column: extract_ts
+  - name: promotions
+    file: promotions.csv
+    load_type: snapshot
+    watermark_column: extract_ts
+  - name: orders
+    file: orders.csv
+    load_type: incremental
+    watermark_column: order_ts
+  - name: order_lines
+    file: order_lines.csv
+    load_type: incremental
+    watermark_column: extract_ts
+  - name: payments
+    file: payments.csv
+    load_type: incremental
+    watermark_column: paid_ts
+  - name: returns
+    file: returns.csv
+    load_type: incremental
+    watermark_column: return_ts
+  - name: inventory_movements
+    file: inventory_movements.csv
+    load_type: incremental
+    watermark_column: movement_ts
+  - name: inventory_snapshots
+    file: inventory_snapshots.csv
+    load_type: snapshot
+    watermark_column: snapshot_date
+  - name: cdc_customers
+    file: cdc_customers.csv
+    load_type: cdc
+    watermark_column: sequence_number
+  - name: cdc_products
+    file: cdc_products.csv
+    load_type: cdc
+    watermark_column: sequence_number
+  - name: cdc_orders
+    file: cdc_orders.csv
+    load_type: cdc
+    watermark_column: sequence_number
+  - name: cdc_order_lines
+    file: cdc_order_lines.csv
+    load_type: cdc
+    watermark_column: sequence_number
+  - name: cdc_payments
+    file: cdc_payments.csv
+    load_type: cdc
+    watermark_column: sequence_number

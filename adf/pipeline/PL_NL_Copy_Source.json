@@ -1,0 +1,132 @@
+{
+  "name": "PL_NL_Copy_Source",
+  "properties": {
+    "description": "Copy one source folder newer than the Synapse watermark, then advance the watermark. The Databricks job applies a second watermark so a copied file is not merged twice.",
+    "parameters": {
+      "source_name": {"type": "String"},
+      "folder": {"type": "String"},
+      "file_name": {"type": "String"},
+      "load_type": {"type": "String"}
+    },
+    "activities": [
+      {
+        "name": "Lookup_Watermark",
+        "type": "Lookup",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.00:10:00",
+          "retry": 2,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "AzureSqlDWSource",
+            "sqlReaderQuery": {
+              "value": "SELECT ISNULL(MAX(last_batch_ts), '1970-01-01T0000') AS last_batch_ts FROM ctl.ingest_watermark WHERE source_name = '@{pipeline().parameters.source_name}'",
+              "type": "Expression"
+            }
+          },
+          "dataset": {
+            "referenceName": "DS_Watermark",
+            "type": "DatasetReference"
+          },
+          "firstRowOnly": true
+        }
+      },
+      {
+        "name": "Copy_New_Batches",
+        "type": "Copy",
+        "dependsOn": [
+          {"activity": "Lookup_Watermark", "dependencyConditions": ["Succeeded"]}
+        ],
+        "policy": {
+          "timeout": "0.02:00:00",
+          "retry": 2,
+          "retryIntervalInSeconds": 60,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "storeSettings": {
+              "type": "AzureBlobFSReadSettings",
+              "recursive": true,
+              "wildcardFolderPath": {
+                "value": "@concat(pipeline().parameters.folder, '/batch_ts=*')",
+                "type": "Expression"
+              },
+              "wildcardFileName": {
+                "value": "@pipeline().parameters.file_name",
+                "type": "Expression"
+              },
+              "modifiedDatetimeStart": {
+                "value": "@activity('Lookup_Watermark').output.firstRow.last_batch_ts",
+                "type": "Expression"
+              }
+            }
+          },
+          "sink": {
+            "type": "DelimitedTextSink",
+            "storeSettings": {
+              "type": "AzureBlobFSWriteSettings",
+              "copyBehavior": "PreserveHierarchy"
+            }
+          },
+          "enableStaging": false
+        },
+        "inputs": [
+          {
+            "referenceName": "DS_Landing_Delimited",
+            "type": "DatasetReference",
+            "parameters": {
+              "folder": {"value": "@pipeline().parameters.folder", "type": "Expression"},
+              "fileName": {"value": "@pipeline().parameters.file_name", "type": "Expression"}
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "DS_Raw_Delimited",
+            "type": "DatasetReference",
+            "parameters": {
+              "folder": {"value": "@concat('raw/', pipeline().parameters.source_name)", "type": "Expression"},
+              "fileName": {"value": "@pipeline().parameters.file_name", "type": "Expression"}
+            }
+          }
+        ]
+      },
+      {
+        "name": "Advance_Watermark",
+        "type": "Script",
+        "dependsOn": [
+          {"activity": "Copy_New_Batches", "dependencyConditions": ["Succeeded"]}
+        ],
+        "policy": {
+          "timeout": "0.00:10:00",
+          "retry": 1,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "linkedServiceName": {
+          "referenceName": "LS_Synapse_Dedicated",
+          "type": "LinkedServiceReference"
+        },
+        "typeProperties": {
+          "scripts": [
+            {
+              "type": "NonQuery",
+              "text": {
+                "value": "MERGE ctl.ingest_watermark AS t USING (SELECT '@{pipeline().parameters.source_name}' AS source_name) AS s ON t.source_name = s.source_name WHEN MATCHED THEN UPDATE SET last_batch_ts = CONVERT(varchar(20), SYSUTCDATETIME(), 127), load_type = '@{pipeline().parameters.load_type}', updated_at = SYSUTCDATETIME() WHEN NOT MATCHED THEN INSERT (source_name, last_batch_ts, load_type, updated_at) VALUES (s.source_name, CONVERT(varchar(20), SYSUTCDATETIME(), 127), '@{pipeline().parameters.load_type}', SYSUTCDATETIME());",
+                "type": "Expression"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

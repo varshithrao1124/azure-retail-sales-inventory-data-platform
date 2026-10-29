@@ -1,0 +1,8 @@
+customer_id loyalty_tier      effective_start        effective_end  is_current
+    C000001       SILVER 2020-01-01T00:00:00Z 2024-11-09T06:00:00Z       False
+    C000001         GOLD 2024-11-09T06:00:00Z                 None        True
+
+customer_id   full_name loyalty_tier      effective_start        effective_end  is_current  is_inferred
+    C000998     UNKNOWN      UNKNOWN 2020-01-01T00:00:00Z                 None        True         True
+    C000999     UNKNOWN      UNKNOWN 2020-01-01T00:00:00Z 2024-11-10T18:00:00Z       False         True
+    C000999 Rowan Ellis        TRAIL 2024-11-10T18:00:00Z                 None        True        False

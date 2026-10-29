@@ -1,0 +1,18 @@
+[
+  {"sourceName": "customers", "folder": "batches", "fileName": "customers.csv", "loadType": "snapshot", "watermarkColumn": "extract_ts"},
+  {"sourceName": "products", "folder": "batches", "fileName": "products.csv", "loadType": "snapshot", "watermarkColumn": "extract_ts"},
+  {"sourceName": "stores", "folder": "batches", "fileName": "stores.csv", "loadType": "snapshot", "watermarkColumn": "extract_ts"},
+  {"sourceName": "channels", "folder": "batches", "fileName": "channels.csv", "loadType": "snapshot", "watermarkColumn": "extract_ts"},
+  {"sourceName": "promotions", "folder": "batches", "fileName": "promotions.csv", "loadType": "snapshot", "watermarkColumn": "extract_ts"},
+  {"sourceName": "orders", "folder": "batches", "fileName": "orders.csv", "loadType": "incremental", "watermarkColumn": "order_ts"},
+  {"sourceName": "order_lines", "folder": "batches", "fileName": "order_lines.csv", "loadType": "incremental", "watermarkColumn": "extract_ts"},
+  {"sourceName": "payments", "folder": "batches", "fileName": "payments.csv", "loadType": "incremental", "watermarkColumn": "paid_ts"},
+  {"sourceName": "returns", "folder": "batches", "fileName": "returns.csv", "loadType": "incremental", "watermarkColumn": "return_ts"},
+  {"sourceName": "inventory_movements", "folder": "batches", "fileName": "inventory_movements.csv", "loadType": "incremental", "watermarkColumn": "movement_ts"},
+  {"sourceName": "inventory_snapshots", "folder": "batches", "fileName": "inventory_snapshots.csv", "loadType": "snapshot", "watermarkColumn": "snapshot_date"},
+  {"sourceName": "cdc_customers", "folder": "batches", "fileName": "cdc_customers.csv", "loadType": "cdc", "watermarkColumn": "sequence_number"},
+  {"sourceName": "cdc_products", "folder": "batches", "fileName": "cdc_products.csv", "loadType": "cdc", "watermarkColumn": "sequence_number"},
+  {"sourceName": "cdc_orders", "folder": "batches", "fileName": "cdc_orders.csv", "loadType": "cdc", "watermarkColumn": "sequence_number"},
+  {"sourceName": "cdc_order_lines", "folder": "batches", "fileName": "cdc_order_lines.csv", "loadType": "cdc", "watermarkColumn": "sequence_number"},
+  {"sourceName": "cdc_payments", "folder": "batches", "fileName": "cdc_payments.csv", "loadType": "cdc", "watermarkColumn": "sequence_number"}
+]

@@ -1,0 +1,10 @@
+{
+  "name": "LS_KeyVault",
+  "properties": {
+    "description": "Key Vault for Databricks and Synapse secrets. Data Factory uses its managed identity (Secrets User).",
+    "type": "AzureKeyVault",
+    "typeProperties": {
+      "baseUrl": "https://kv-nl-retail-dev.vault.azure.net/"
+    }
+  }
+}

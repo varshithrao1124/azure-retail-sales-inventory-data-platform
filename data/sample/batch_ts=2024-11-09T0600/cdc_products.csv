@@ -1,0 +1,3 @@
+sequence_number,op,change_ts,sku,product_name,category,subcategory,brand,unit_cost,list_price,status,extract_ts
+1144,U,2024-11-09T06:00:00Z,SKU-SHL-0001,Ridge 2 Tent,Shelter,Tents,Northline,104.00,249.00,ACTIVE,2024-11-09T06:00:00Z
+1145,U,2024-11-09T06:00:00Z,SKU-APP-0002,Cedar Flannel,Outlet,Clearance,Northline,22.00,68.00,ACTIVE,2024-11-09T06:00:00Z

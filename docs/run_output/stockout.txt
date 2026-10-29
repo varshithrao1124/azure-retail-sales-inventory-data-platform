@@ -1,0 +1,2 @@
+         sku store_id  stockout_days
+SKU-LGT-0003    STR02              4

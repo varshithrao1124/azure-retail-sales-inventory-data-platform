@@ -1,0 +1,2 @@
+sequence_number,op,change_ts,order_id,order_ts,customer_id,store_id,channel_id,promo_id,status,extract_ts
+1147,U,2024-11-09T16:10:00Z,O-CAN-0001,2024-11-09T16:10:00Z,C000002,STR01,RETAIL,,OPEN,2024-11-10T18:00:00Z

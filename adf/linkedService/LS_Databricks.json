@@ -1,0 +1,13 @@
+{
+  "name": "LS_Databricks",
+  "properties": {
+    "description": "Calls the northline-medallion job. MSI workspace auth. Replace workspace id and domain from the bicep output before import. Do not paste a PAT into this file.",
+    "type": "AzureDatabricks",
+    "typeProperties": {
+      "domain": "https://adb-0000000000000000.0.azuredatabricks.net",
+      "authentication": "MSI",
+      "workspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-nl-retail-dev/providers/Microsoft.Databricks/workspaces/dbw-nl-retail-dev",
+      "existingClusterId": "0000-000000-northline"
+    }
+  }
+}

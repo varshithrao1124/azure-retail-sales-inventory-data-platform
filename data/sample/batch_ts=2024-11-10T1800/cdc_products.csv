@@ -1,0 +1,4 @@
+sequence_number,op,change_ts,sku,product_name,category,subcategory,brand,unit_cost,list_price,status,extract_ts
+1543,I,2024-11-10T18:00:00Z,SKU-NEW-0001,Trail Mug 12oz,Cook,Cups,Northline,6.00,16.00,ACTIVE,2024-11-10T18:00:00Z
+1545,U,2024-11-10T18:10:00Z,SKU-APP-0003,Mist Shell,Apparel,Shells,Northline,40.00,120.00,DISCONTINUED,2024-11-10T18:00:00Z
+1546,D,2024-11-10T18:12:00Z,SKU-ERR-0001,Duplicate Stake Kit,Shelter,Accessories,Northline,4.00,12.00,ACTIVE,2024-11-10T18:00:00Z

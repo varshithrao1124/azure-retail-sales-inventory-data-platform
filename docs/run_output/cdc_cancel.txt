@@ -1,0 +1,2 @@
+  order_id    status  sequence_number  is_deleted
+O-CAN-0001 CANCELLED             1363       False
