@@ -1,0 +1,9 @@
+store_id,store_name,store_type,region,state,city,square_feet,open_date,extract_ts
+STR01,Ballard,RETAIL,Pacific,WA,Seattle,8200,2014-03-01,2024-11-08T06:00:00Z
+STR02,Hawthorne,RETAIL,Pacific,OR,Portland,6100,2016-11-12,2024-11-08T06:00:00Z
+STR03,Highlands,RETAIL,Mountain,CO,Denver,7400,2018-05-02,2024-11-08T06:00:00Z
+STR04,Mission,RETAIL,Pacific,CA,San Francisco,5400,2019-08-19,2024-11-08T06:00:00Z
+STR05,Hyde Park,RETAIL,Mountain,ID,Boise,4800,2021-04-07,2024-11-08T06:00:00Z
+STR06,Old Mill,RETAIL,Mountain,OR,Bend,3900,2022-09-15,2024-11-08T06:00:00Z
+DC01,Troutdale DC,DC,Pacific,OR,Troutdale,42000,2012-01-09,2024-11-08T06:00:00Z
+MKT01,Marketplace Node,MARKETPLACE_NODE,Pacific,WA,Seattle,0,2020-06-01,2024-11-08T06:00:00Z

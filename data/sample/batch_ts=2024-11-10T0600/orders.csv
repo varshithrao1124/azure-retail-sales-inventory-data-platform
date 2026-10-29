@@ -1,0 +1,4 @@
+order_id,order_ts,customer_id,store_id,channel_id,promo_id,status,sequence_number,extract_ts
+O-LATE-0001,2024-11-08T21:15:00Z,C000999,DC01,WEB,,SHIPPED,1368,2024-11-10T06:00:00Z
+O-GHOST-0001,2024-11-08T21:45:00Z,C000998,STR01,RETAIL,,SHIPPED,1371,2024-11-10T06:00:00Z
+BAD,not-a-timestamp,CX,NO,FAX,NOPE,MAYBE,xyz,2024-11-10T06:00:00Z

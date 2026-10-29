@@ -1,0 +1,2 @@
+sequence_number,op,change_ts,order_id,order_ts,customer_id,store_id,channel_id,promo_id,status,extract_ts
+1157,U,2024-11-09T18:31:00Z,O-RET-0001,2024-11-08T16:05:00Z,C000001,STR01,RETAIL,,PARTIALLY_RETURNED,2024-11-09T18:00:00Z

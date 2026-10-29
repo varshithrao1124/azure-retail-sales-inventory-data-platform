@@ -1,0 +1,2 @@
+sequence_number,op,change_ts,customer_id,full_name,email,segment,loyalty_tier,home_store_id,city,state,postal_code,status,extract_ts
+1366,U,2024-11-10T05:10:00Z,C000003,Samir Cole,not-an-email,EMPLOYEE,NONE,STR04,San Francisco,CA,78501,ACTIVE,2024-11-10T06:00:00Z

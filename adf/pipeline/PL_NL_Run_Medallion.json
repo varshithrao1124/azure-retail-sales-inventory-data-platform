@@ -1,0 +1,30 @@
+{
+  "name": "PL_NL_Run_Medallion",
+  "properties": {
+    "description": "Run the Databricks Asset Bundle job. The notebook and the wheel-less python file import src/northline, the same package pytest executes.",
+    "parameters": {
+      "env": {"type": "String", "defaultValue": "dev"}
+    },
+    "activities": [
+      {
+        "name": "Run_Northline_Job",
+        "type": "DatabricksJob",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.04:00:00",
+          "retry": 1,
+          "retryIntervalInSeconds": 120,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "jobId": "0"
+        },
+        "linkedServiceName": {
+          "referenceName": "LS_Databricks",
+          "type": "LinkedServiceReference"
+        }
+      }
+    ]
+  }
+}

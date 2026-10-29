@@ -1,0 +1,2 @@
+sequence_number,op,change_ts,payment_id,order_id,tender_type,amount,status,paid_ts,extract_ts
+1365,U,2024-11-10T05:16:00Z,P2024110900044,O-CAN-0001,CARD,36.21,VOIDED,2024-11-09T16:10:00Z,2024-11-10T06:00:00Z

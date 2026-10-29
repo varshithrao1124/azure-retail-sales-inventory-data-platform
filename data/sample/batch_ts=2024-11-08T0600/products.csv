@@ -1,0 +1,31 @@
+sku,product_name,category,subcategory,brand,unit_cost,list_price,status,extract_ts
+SKU-APP-0002,Cedar Flannel,Apparel,Shirts,Northline,22.00,68.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-APP-0003,Mist Shell,Apparel,Shells,Northline,40.00,120.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-CKN-0001,Kettle 1.2L,Cook,Stoves,Fieldpot,14.00,34.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-ERR-0001,Duplicate Stake Kit,Shelter,Accessories,Northline,4.00,12.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0001,Field Item 1,Shelter,Tents,Northline,8.40,20.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0002,Field Item 2,Apparel,Shirts,Northline,11.34,27.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0003,Field Item 3,Cook,Stoves,Northline,14.28,34.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0004,Field Item 4,Light,Lamps,Northline,17.22,41.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0005,Field Item 5,Shelter,Tents,Northline,20.16,48.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0006,Field Item 6,Apparel,Shirts,Northline,23.10,55.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0007,Field Item 7,Cook,Stoves,Northline,26.04,62.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0008,Field Item 8,Light,Lamps,Northline,28.98,69.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0009,Field Item 9,Shelter,Tents,Northline,31.92,76.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0010,Field Item 10,Apparel,Shirts,Northline,34.86,83.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0011,Field Item 11,Cook,Stoves,Northline,37.80,90.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0012,Field Item 12,Light,Lamps,Northline,40.74,97.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0013,Field Item 13,Shelter,Tents,Northline,43.68,104.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0014,Field Item 14,Apparel,Shirts,Northline,8.82,21.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0015,Field Item 15,Cook,Stoves,Northline,11.76,28.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0016,Field Item 16,Light,Lamps,Northline,14.70,35.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0017,Field Item 17,Shelter,Tents,Northline,17.64,42.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0018,Field Item 18,Apparel,Shirts,Northline,20.58,49.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0019,Field Item 19,Cook,Stoves,Northline,23.52,56.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0020,Field Item 20,Light,Lamps,Northline,26.46,63.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0021,Field Item 21,Shelter,Tents,Northline,29.40,70.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0022,Field Item 22,Apparel,Shirts,Northline,32.34,77.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0023,Field Item 23,Cook,Stoves,Northline,35.28,84.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-EXT-0024,Field Item 24,Light,Lamps,Northline,38.22,91.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-LGT-0003,Beacon Lantern,Light,Lanterns,Northline,11.00,28.00,ACTIVE,2024-11-08T06:00:00Z
+SKU-SHL-0001,Ridge 2 Tent,Shelter,Tents,Northline,96.00,229.00,ACTIVE,2024-11-08T06:00:00Z

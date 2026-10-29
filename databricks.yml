@@ -1,0 +1,74 @@
+bundle:
+  name: northline-retail
+
+variables:
+  workspace_host:
+    description: Databricks workspace URL. Override per target; do not commit a real PAT.
+    default: https://adb-0000000000000000.0.azuredatabricks.net
+  storage_account:
+    description: ADLS Gen2 account created by infra/main.bicep
+    default: stnlretaildev
+  catalog:
+    description: Unity Catalog name
+    default: northline_dev
+
+sync:
+  include:
+    - src/**
+    - sql/**
+    - conf/**
+  exclude:
+    - .venv/**
+    - data/lake/**
+    - data/logs/**
+
+targets:
+  dev:
+    default: true
+    mode: development
+    workspace:
+      host: ${var.workspace_host}
+    variables:
+      storage_account: stnlretaildev
+      catalog: northline_dev
+  prod:
+    mode: production
+    workspace:
+      host: ${var.workspace_host}
+    variables:
+      storage_account: stnlretailprod
+      catalog: northline_prod
+
+resources:
+  jobs:
+    northline_medallion:
+      name: northline-medallion-${bundle.target}
+      schedule:
+        quartz_cron_expression: "0 0 7,19 * * ?"
+        timezone_id: America/Los_Angeles
+        pause_status: UNPAUSED
+      tasks:
+        - task_key: bronze_silver_gold
+          spark_python_task:
+            python_file: src/northline/jobs/run_medallion.py
+            parameters:
+              - --env
+              - ${bundle.target}
+          new_cluster:
+            spark_version: 15.4.x-scala2.12
+            node_type_id: Standard_DS3_v2
+            num_workers: 2
+            data_security_mode: SINGLE_USER
+            spark_conf:
+              spark.databricks.delta.preview.enabled: "true"
+              spark.sql.adaptive.enabled: "true"
+              spark.sql.adaptive.skewJoin.enabled: "true"
+            spark_env_vars:
+              NL_ENV: ${bundle.target}
+              NL_STORAGE_MODE: adls
+              NL_CATALOG_MODE: unity
+              NL_STORAGE_ACCOUNT: ${var.storage_account}
+              NL_CATALOG: ${var.catalog}
+      tags:
+        project: northline-retail
+        layer: medallion

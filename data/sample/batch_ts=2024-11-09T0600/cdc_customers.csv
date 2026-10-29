@@ -1,0 +1,3 @@
+sequence_number,op,change_ts,customer_id,full_name,email,segment,loyalty_tier,home_store_id,city,state,postal_code,status,extract_ts
+1142,U,2024-11-09T06:00:00Z,C000001,Jordan Hale,jordan.hale@northline.example,LOYALTY,GOLD,STR01,Seattle,WA,98107,ACTIVE,2024-11-09T06:00:00Z
+1143,U,2024-11-09T06:05:00Z,C000004,Daniel Wagner,c000004@northline.example,NEW,SILVER,STR05,Boise,ID,85576,ACTIVE,2024-11-09T06:00:00Z

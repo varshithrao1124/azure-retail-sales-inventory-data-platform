@@ -1,0 +1,90 @@
+{
+  "name": "PL_NL_Orchestrator",
+  "properties": {
+    "description": "Metadata-driven orchestration. Lookup the control file, copy each source, then run the medallion job once.",
+    "parameters": {
+      "alert_webhook_url": {"type": "String", "defaultValue": ""},
+      "env": {"type": "String", "defaultValue": "dev"}
+    },
+    "activities": [
+      {
+        "name": "Lookup_Sources",
+        "type": "Lookup",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.00:10:00",
+          "retry": 2,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "JsonSource",
+            "storeSettings": {"type": "AzureBlobFSReadSettings", "recursive": false}
+          },
+          "dataset": {"referenceName": "DS_Ingest_Control", "type": "DatasetReference"},
+          "firstRowOnly": false
+        }
+      },
+      {
+        "name": "ForEach_Source",
+        "type": "ForEach",
+        "dependsOn": [
+          {"activity": "Lookup_Sources", "dependencyConditions": ["Succeeded"]}
+        ],
+        "typeProperties": {
+          "items": {"value": "@activity('Lookup_Sources').output.value", "type": "Expression"},
+          "isSequential": true,
+          "activities": [
+            {
+              "name": "Copy_One_Source",
+              "type": "ExecutePipeline",
+              "typeProperties": {
+                "pipeline": {"referenceName": "PL_NL_Copy_Source", "type": "PipelineReference"},
+                "waitOnCompletion": true,
+                "parameters": {
+                  "source_name": {"value": "@item().sourceName", "type": "Expression"},
+                  "folder": {"value": "@item().folder", "type": "Expression"},
+                  "file_name": {"value": "@item().fileName", "type": "Expression"},
+                  "load_type": {"value": "@item().loadType", "type": "Expression"}
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "Run_Medallion",
+        "type": "ExecutePipeline",
+        "dependsOn": [
+          {"activity": "ForEach_Source", "dependencyConditions": ["Succeeded"]}
+        ],
+        "typeProperties": {
+          "pipeline": {"referenceName": "PL_NL_Run_Medallion", "type": "PipelineReference"},
+          "waitOnCompletion": true,
+          "parameters": {
+            "env": {"value": "@pipeline().parameters.env", "type": "Expression"}
+          }
+        }
+      },
+      {
+        "name": "Notify_Failure",
+        "type": "WebActivity",
+        "dependsOn": [
+          {"activity": "Run_Medallion", "dependencyConditions": ["Failed"]},
+          {"activity": "ForEach_Source", "dependencyConditions": ["Failed"]}
+        ],
+        "typeProperties": {
+          "method": "POST",
+          "url": {"value": "@pipeline().parameters.alert_webhook_url", "type": "Expression"},
+          "headers": {"Content-Type": "application/json"},
+          "body": {
+            "value": "{\"code\":\"ADF_PIPELINE_FAILED\",\"pipeline\":\"PL_NL_Orchestrator\"}",
+            "type": "Expression"
+          }
+        }
+      }
+    ]
+  }
+}

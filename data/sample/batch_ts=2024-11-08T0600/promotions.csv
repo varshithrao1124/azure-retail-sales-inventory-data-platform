@@ -1,0 +1,2 @@
+promo_id,promo_name,applies_to_category,discount_pct,start_date,end_date,extract_ts
+PROMO-TRAIL15,Trail Week 15,Shelter,0.15,2024-11-09,2024-11-10,2024-11-08T06:00:00Z

@@ -1,0 +1,3 @@
+sequence_number,op,change_ts,customer_id,full_name,email,segment,loyalty_tier,home_store_id,city,state,postal_code,status,extract_ts
+1542,I,2024-11-10T18:00:00Z,C000999,Rowan Ellis,rowan.ellis@northline.example,NEW,TRAIL,STR01,Tacoma,WA,98402,ACTIVE,2024-11-10T18:00:00Z
+1544,D,2024-11-10T18:05:00Z,C000010,Parker Nguyen,c000010@northline.example,EMPLOYEE,SILVER,STR02,Portland,OR,97214,DELETED,2024-11-10T18:00:00Z

@@ -1,0 +1,36 @@
+..............                                                           [100%]
+
+---------- coverage: platform linux, python 3.12.3-final-0 -----------
+Name                                    Stmts   Miss  Cover   Missing
+---------------------------------------------------------------------
+src/northline/__init__.py                   1      0   100%
+src/northline/audit/alerts.py              28     10    64%   47-75
+src/northline/audit/reconcile.py           42      2    95%   34, 94
+src/northline/config.py                   105      5    95%   28, 44, 114, 128, 131
+src/northline/errors.py                     4      0   100%
+src/northline/generator/__init__.py         2      0   100%
+src/northline/generator/catalog.py         42      0   100%
+src/northline/generator/synthesize.py     434     20    95%   113, 154, 161, 194-196, 221, 341, 345-346, 394, 503, 699, 1184-1185, 1195, 1200, 1203, 1321, 1330
+src/northline/gold/build.py                85     18    79%   24, 513-539
+src/northline/ingest/landing.py             6      0   100%
+src/northline/io_delta.py                  40     18    55%   16, 23-32, 63-69
+src/northline/logging_utils.py             32     22    31%   13-25, 29-44
+src/northline/measures.py                  33      2    94%   37-38
+src/northline/pipeline/__init__.py          2      0   100%
+src/northline/pipeline/runner.py          189     40    79%   44-56, 196, 199-202, 208-209, 250-256, 266-276, 293-294, 308, 367
+src/northline/retry.py                     27      3    89%   25, 56-57
+src/northline/schemas.py                   31      0   100%
+src/northline/secrets.py                   18     10    44%   22-31
+src/northline/silver/apply.py             158      1    99%   131
+src/northline/silver/cdc.py                24      0   100%
+src/northline/silver/inventory.py          67      5    93%   42, 95, 125-127
+src/northline/silver/quality.py            89      0   100%
+src/northline/silver/scd.py                83      7    92%   77, 176-181
+src/northline/spark_session.py             18      2    89%   21-22
+---------------------------------------------------------------------
+TOTAL                                    1560    165    89%
+
+4 empty files skipped.
+Coverage XML written to file coverage.xml
+
+EXIT:0

@@ -1,0 +1,157 @@
+{
+  "run_id": "20261029T173107Z-50563b75",
+  "status": "SUCCESS",
+  "environment": "dev",
+  "storage_mode": "local",
+  "catalog_mode": "local",
+  "duration_seconds": 72.295,
+  "batches_processed": [],
+  "batches_skipped": [
+    "2024-11-08T0600",
+    "2024-11-08T1800",
+    "2024-11-09T0600",
+    "2024-11-09T1800",
+    "2024-11-10T0600",
+    "2024-11-10T1800"
+  ],
+  "exact_duplicates_removed": 0,
+  "gold_counts": {
+    "fact_sales": 198,
+    "fact_returns": 9,
+    "fact_payments": 165,
+    "fact_inventory_movement": 212,
+    "fact_inventory_snapshot": 964
+  },
+  "net_sales": 22169.25,
+  "aov": 143.03,
+  "return_rate_units": 0.0237,
+  "quarantine": [
+    {
+      "rule_id": "NEGATIVE_ON_HAND",
+      "rows": 1
+    },
+    {
+      "rule_id": "RETURN_EXCEEDS_SALE",
+      "rows": 1
+    },
+    {
+      "rule_id": "BAD_EMAIL",
+      "rows": 1
+    },
+    {
+      "rule_id": "ORPHAN_PAYMENT",
+      "rows": 1
+    },
+    {
+      "rule_id": "BAD_MOVEMENT_TYPE",
+      "rows": 1
+    },
+    {
+      "rule_id": "BAD_QTY",
+      "rows": 1
+    },
+    {
+      "rule_id": "BAD_RETURN_QTY",
+      "rows": 1
+    },
+    {
+      "rule_id": "BAD_PRICE",
+      "rows": 1
+    },
+    {
+      "rule_id": "BAD_LINE_STATUS",
+      "rows": 1
+    },
+    {
+      "rule_id": "BAD_DISCOUNT",
+      "rows": 1
+    },
+    {
+      "rule_id": "BAD_AMOUNT",
+      "rows": 1
+    },
+    {
+      "rule_id": "BAD_CUSTOMER_ID",
+      "rows": 1
+    },
+    {
+      "rule_id": "BAD_SEQUENCE",
+      "rows": 1
+    },
+    {
+      "rule_id": "BAD_ORDER_TS",
+      "rows": 1
+    },
+    {
+      "rule_id": "BAD_SKU",
+      "rows": 1
+    },
+    {
+      "rule_id": "BAD_ORDER_ID",
+      "rows": 1
+    },
+    {
+      "rule_id": "BAD_STATUS",
+      "rows": 1
+    },
+    {
+      "rule_id": "BAD_CHANNEL",
+      "rows": 1
+    },
+    {
+      "rule_id": "BAD_STORE",
+      "rows": 1
+    },
+    {
+      "rule_id": "CORRUPT_ROW",
+      "rows": 1
+    }
+  ],
+  "reconciliation_pass": 15,
+  "reconciliation_fail": 0,
+  "optimize": [
+    {
+      "path": "/workspace/data/lake/gold/fact_sales",
+      "zorder": [
+        "store_id",
+        "sku"
+      ],
+      "files_before": 4,
+      "files_after": 3,
+      "bytes_before": 56965,
+      "bytes_after": 46850,
+      "status": "ok",
+      "seconds": 1.887,
+      "table": "fact_sales"
+    },
+    {
+      "path": "/workspace/data/lake/gold/fact_inventory_snapshot",
+      "zorder": [
+        "store_id",
+        "sku"
+      ],
+      "files_before": 4,
+      "files_after": 4,
+      "bytes_before": 18464,
+      "bytes_after": 18464,
+      "status": "ok",
+      "seconds": 1.426,
+      "table": "fact_inventory_snapshot"
+    },
+    {
+      "path": "/workspace/data/lake/gold/fact_inventory_movement",
+      "zorder": [
+        "store_id",
+        "sku"
+      ],
+      "files_before": 8,
+      "files_after": 3,
+      "bytes_before": 41776,
+      "bytes_after": 19290,
+      "status": "ok",
+      "seconds": 1.59,
+      "table": "fact_inventory_movement"
+    }
+  ],
+  "error_message": ""
+}

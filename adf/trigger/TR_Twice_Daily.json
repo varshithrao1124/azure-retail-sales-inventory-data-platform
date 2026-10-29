@@ -1,0 +1,32 @@
+{
+  "name": "TR_Twice_Daily",
+  "properties": {
+    "description": "06:00 and 18:00 UTC, matching the sample extract cadence. The webhook URL is a pipeline parameter supplied from Key Vault at deploy time, not stored here.",
+    "type": "ScheduleTrigger",
+    "runtimeState": "Stopped",
+    "pipelines": [
+      {
+        "pipelineReference": {
+          "referenceName": "PL_NL_Orchestrator",
+          "type": "PipelineReference"
+        },
+        "parameters": {
+          "env": "dev",
+          "alert_webhook_url": ""
+        }
+      }
+    ],
+    "typeProperties": {
+      "recurrence": {
+        "frequency": "Day",
+        "interval": 1,
+        "startTime": "2024-11-08T06:00:00Z",
+        "timeZone": "UTC",
+        "schedule": {
+          "minutes": [0],
+          "hours": [6, 18]
+        }
+      }
+    }
+  }
+}

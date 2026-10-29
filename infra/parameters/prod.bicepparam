@@ -1,0 +1,12 @@
+using '../main.bicep'
+
+param env = 'prod'
+param location = 'eastus'
+param storageAccountName = 'stnlretailprod'
+param keyVaultName = 'kv-nl-retail-prod'
+param dataFactoryName = 'adf-nl-retail-prod'
+param databricksName = 'dbw-nl-retail-prod'
+param synapseName = 'syn-nl-retail-prod'
+param sqlAdminLogin = 'nladmin'
+param sqlPoolName = 'nlretail'
+param sqlPoolSku = 'DW100c'

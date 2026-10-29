@@ -1,0 +1,2 @@
+sequence_number,op,change_ts,order_id,line_number,sku,qty,unit_price,discount_amt,tax_amt,line_status,extract_ts
+1364,U,2024-11-10T05:15:00Z,O-CAN-0001,1,SKU-CKN-0001,1,34.00,0.00,2.21,CANCELLED,2024-11-10T06:00:00Z
